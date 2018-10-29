@@ -16,7 +16,7 @@ public class Ahorcado {
     public static void main(String[] args) {
         
         System.out.println("Hola Git");
-        
+        System.out.println("hola funcionara");
     }
     
 }
