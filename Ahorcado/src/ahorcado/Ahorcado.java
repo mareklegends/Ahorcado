@@ -23,6 +23,7 @@ public class Ahorcado {
         return intentos;
     }
     
+   
     
     
     public static void main(String[] args) {
