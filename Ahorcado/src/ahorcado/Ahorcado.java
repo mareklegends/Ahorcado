@@ -28,8 +28,11 @@ public class Ahorcado {
     
     public static void main(String[] args) {
         
+        boolean bandera;
+        bandera=true;
+        
     
-         System.out.println("[=====================]");
+        System.out.println("[=====================]");
         System.out.println("|                     |");
         System.out.println("|     AhorcadoGAME    |");
         System.out.println("|                     |");
@@ -56,7 +59,8 @@ public class Ahorcado {
             letra = leer.next();
             System.out.println("[=====================]");
         }
-        
+    
+        do{
         switch(gameOVER()){
          
             case 5:
@@ -197,6 +201,8 @@ public class Ahorcado {
                 break;
             
         } 
+        }while(bandera=false);
+     
         
         
     }
