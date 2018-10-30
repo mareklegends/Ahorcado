@@ -17,8 +17,20 @@ public class Ahorcado {
        
     //para el contador de intentos
     public static int gameOVER(){
+   
         int intentos;
-        intentos = 7;
+        intentos=7;
+            
+         System.out.println("[=====================]");
+            System.out.println("");                    
+            //mostrar el vector de la palabra
+            System.out.println("");
+            System.out.println("Dime un palabra");
+            String letra;
+            Scanner leer2 = new Scanner(System.in);
+            letra = leer2.next();
+            System.out.println("[=====================]");
+        
         
         return intentos;
     }
@@ -27,12 +39,15 @@ public class Ahorcado {
     
     
     public static void main(String[] args) {
+     
+        //varibales principales
+          int empezarjuego;
+   
         
-        boolean bandera;
-        bandera=true;
-        
+    do{
     
-        System.out.println("[=====================]");
+        
+          System.out.println("[=====================]");
         System.out.println("|                     |");
         System.out.println("|     AhorcadoGAME    |");
         System.out.println("|                     |");
@@ -41,24 +56,18 @@ public class Ahorcado {
         System.out.println("[=====================]");
         System.out.println("");
         
-        int empezarjuego;
+      
         Scanner leer = new Scanner(System.in);
         empezarjuego = leer.nextInt();
         
-        if(empezarjuego==1){
-            
-            // sacarPalabra();
-            
-            System.out.println("[=====================]");
-            System.out.println("");                    
-            //mostrar el vector de la palabra
-            System.out.println("");
-            System.out.println("Dime un palabra");
-            String letra;
-            Scanner leer2 = new Scanner(System.in);
-            letra = leer.next();
-            System.out.println("[=====================]");
-        }
+        
+        }while(empezarjuego==1);
+    
+      
+                  
+        boolean bandera;
+        bandera=true;
+
     
         do{
         switch(gameOVER()){
