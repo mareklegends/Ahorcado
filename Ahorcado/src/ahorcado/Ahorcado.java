@@ -11,54 +11,30 @@ public class Ahorcado {
    
        
     //te pide que digas la palabra. para el contador de intentos
-    public static int gameOVER(){
-   
-        int intentos;
-        intentos=7;
-            
-        System.out.println("[=====================]");
-        System.out.println("");                    
-        //mostrar el vector de la palabra
-        System.out.println("");
-        System.out.println("Dime una letra");
-        String letra;
-        Scanner leer2 = new Scanner(System.in);
-        letra = leer2.next();
-        System.out.println("[=====================]");               
+    public static boolean gameOVER(String[] vector){
+        boolean fin = false;
         
- 
-
-        return intentos;
+        for (int i = 0; i < vector.length; i++) {
+      
+            
+        }
+        
+        
+        return fin;
     }
     
     //poner mi palabra en el vector
     
-  public static void inicializarVectorpalabra(String[] vector){
+  public static void inicializarVectores(String[] vector, String[] v2, String palabra){
         
-        String palabra;
-        
-        palabra="marcos";
-               
         for (int i = 0; i < vector.length; i++) {
    
-            vector[i]=palabra.substring(i, palabra.length()-1);
+            vector[i]=palabra.substring(i, i+1);
+            v2[i]=" _ ";
          
         }   
     }
   
-  //poner el vector de sacar palabra con guiones
-  
-    public static void inicializarVectorsacar(String[] vector){
-       
-                  
-        for (int i = 0; i < vector.length; i++) {
-   
-            vector[i]="-";
-         
-        }
-        
-    }
-    
     //comprobar la letra que escribas con la palabra
     
     public static void comprobarVectorpalabra(String[] vector, String letra){
@@ -67,48 +43,8 @@ public class Ahorcado {
         
     }    
     
-    
-    public static void main(String[] args) {
-     
-    //varibales principales
-    int empezarjuego;
-
-    //inicializar el vector de la palabra  
-    String[] vPalabra = new String[6];
-    inicializarVectorpalabra(vPalabra);
-
-    //inicializar el vector de la palabra a adivinar 
-    String[] vSacar = new String[6];
-    inicializarVectorsacar(vSacar);
-        
-    //bucle de inicio de juego    
-    do{
-    
-        
-        System.out.println("[=====================]");
-        System.out.println("|                     |");
-        System.out.println("|     AhorcadoGAME    |");
-        System.out.println("|                     |");
-        System.out.println("|     1 [Empezar]     |"); 
-        System.out.println("|                     |");
-        System.out.println("[=====================]");
-        System.out.println("");
-        
-      
-        Scanner leer = new Scanner(System.in);
-        empezarjuego = leer.nextInt();
-        
-        
-        }while(empezarjuego!=1);
-    
-    //poner la bandera en true
-                  
-    boolean bandera;
-    bandera=true;
-        
-    //bucle para cuando ya le has dado a jugar para que te salga cuando falles
-        do{
-        switch(gameOVER()){
+    public static void pintaMuñeco(int vidas){
+        switch(vidas){
          
             case 5:
                 System.out.println("|");
@@ -245,6 +181,55 @@ public class Ahorcado {
                 break;
             
         } 
+    }
+    
+    
+    public static void main(String[] args) {
+     
+    //varibales principales
+    int empezarjuego,vidas=6;
+    String palabra = "hola";
+
+    //inicializar el vector de la palabra  
+    String[] vPalabra = new String[palabra.length()];
+     String[] vSacar = new String[palabra.length()];
+    inicializarVectores(vPalabra,vSacar,palabra);
+
+    
+        
+    //bucle de inicio de juego    
+    do{
+    
+        
+        System.out.println("[=====================]");
+        System.out.println("|                     |");
+        System.out.println("|     AhorcadoGAME    |");
+        System.out.println("|                     |");
+        System.out.println("|     1 [Empezar]     |"); 
+        System.out.println("|                     |");
+        System.out.println("[=====================]");
+        System.out.println("");
+        
+      
+        Scanner leer = new Scanner(System.in);
+        empezarjuego = leer.nextInt();
+        
+        
+        }while(empezarjuego!=1);
+    
+    //poner la bandera en true
+                  
+    boolean bandera=true;
+  
+        
+    //bucle para cuando ya le has dado a jugar para que te salga cuando falles
+        do{
+            pintaMuñeco(vidas);
+            //pinto vsacar
+            //leo palabra
+            //compruebo si ha terminado
+            
+        
         }while(bandera=false);
         
         
