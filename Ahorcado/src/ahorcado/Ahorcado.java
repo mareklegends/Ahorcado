@@ -43,10 +43,7 @@ public class Ahorcado {
    
             vector[i]=palabra.substring(i, palabra.length()-1);
          
-        }
-        
-     
-        
+        }   
     }
   
   //poner el vector de sacar palabra con guiones
