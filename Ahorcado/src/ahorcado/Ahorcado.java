@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ahorcado;
 
 import java.util.Scanner;
@@ -11,9 +6,9 @@ import java.util.Scanner;
  *
  * @author MarekLegends
  */
-public class Ahorcado {
 
-    
+public class Ahorcado {
+   
        
     //te pide que digas la palabra. para el contador de intentos
     public static int gameOVER(){
@@ -66,29 +61,30 @@ public class Ahorcado {
         }
         
     }
+    
     //comprobar la letra que escribas con la palabra
     
     public static void comprobarVectorpalabra(String[] vector, String letra){
         
         //como mando al un vector que esta en una funcion y una variavle que esta en otra funcion
         
-    }
-      
+    }    
     
     
     public static void main(String[] args) {
      
-        //varibales principales
-        int empezarjuego;
-          
-        //inicializar el vector de la palabra  
-        String[] vPalabra = new String[6];
-        inicializarVectorpalabra(vPalabra);
+    //varibales principales
+    int empezarjuego;
+
+    //inicializar el vector de la palabra  
+    String[] vPalabra = new String[6];
+    inicializarVectorpalabra(vPalabra);
+
+    //inicializar el vector de la palabra a adivinar 
+    String[] vSacar = new String[6];
+    inicializarVectorsacar(vSacar);
         
-        //inicializar el vector de la palabra a adivinar 
-        String[] vSacar = new String[6];
-        inicializarVectorsacar(vSacar);
-        
+    //bucle de inicio de juego    
     do{
     
         
@@ -108,12 +104,12 @@ public class Ahorcado {
         
         }while(empezarjuego!=1);
     
-      
+    //poner la bandera en true
                   
-        boolean bandera;
-        bandera=true;
-
-    
+    boolean bandera;
+    bandera=true;
+        
+    //bucle para cuando ya le has dado a jugar para que te salga cuando falles
         do{
         switch(gameOVER()){
          
@@ -132,8 +128,7 @@ public class Ahorcado {
                 System.out.println("No has fallao");
                 System.out.println("");
                 System.out.println("Intentos que te quedan: ");
-                break;
-                
+                break;                
                 
             case 4:
                 System.out.println("|");
@@ -154,6 +149,7 @@ public class Ahorcado {
                 System.out.println("");
                 System.out.println("Intentos que te quedan: ");
                 break;
+                
             case 3:
                 System.out.println("|");
                 System.out.println("|");
@@ -175,8 +171,7 @@ public class Ahorcado {
                 System.out.println("No has fallao");
                 System.out.println("");
                 System.out.println("Intentos que te quedan: ");
-                break;
-                
+                break;                
                 
             case 2:
                 
@@ -201,9 +196,9 @@ public class Ahorcado {
                 System.out.println("");
                 System.out.println("No has fallao");
                 System.out.println("");
-                System.out.println("Intentos que te quedan: ");
-            
+                System.out.println("Intentos que te quedan: ");            
                 break;
+                
             case 1:
                 System.out.println("_________ ");
                 System.out.println("|       |");
@@ -226,10 +221,8 @@ public class Ahorcado {
                 System.out.println("");
                 System.out.println("No has fallao");
                 System.out.println("");
-                System.out.println("Intentos que te quedan: ");
-                
-                break;
-                
+                System.out.println("Intentos que te quedan: ");                
+                break;                
                 
             case 0:
                 
@@ -256,7 +249,9 @@ public class Ahorcado {
             
         } 
         }while(bandera=false);
-     
+        
+        
+    //el juego ya ha terminado aquí
         
         
     }
