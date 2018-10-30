@@ -226,6 +226,7 @@ public class Ahorcado {
         do{
             pintaMuñeco(vidas);
             //pinto vsacar
+            gameOVER(vSacar);
             //leo palabra
             //compruebo si ha terminado
             
