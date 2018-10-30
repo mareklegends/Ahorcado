@@ -25,7 +25,7 @@ public class Ahorcado {
             System.out.println("");                    
             //mostrar el vector de la palabra
             System.out.println("");
-            System.out.println("Dime un palabra");
+            System.out.println("Dime una letra");
             String letra;
             Scanner leer2 = new Scanner(System.in);
             letra = leer2.next();
@@ -61,7 +61,7 @@ public class Ahorcado {
         empezarjuego = leer.nextInt();
         
         
-        }while(empezarjuego==1);
+        }while(empezarjuego!=1);
     
       
                   
