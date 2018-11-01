@@ -10,18 +10,7 @@ import java.util.Scanner;
 public class Ahorcado {
    
        
-    //te pide que digas la palabra. para el contador de intentos
-    public static boolean gameOVER(String[] vector){
-        boolean fin = false;
-        
-        for (int i = 0; i < vector.length; i++) {
-      
-            
-        }
-        
-        
-        return fin;
-    }
+
     
     //poner mi palabra en el vector
     
@@ -35,13 +24,55 @@ public class Ahorcado {
         }   
     }
   
-    //comprobar la letra que escribas con la palabra
+    public static void mostarVectores(String[] v2){
+
+     
+        
+             for (int i = 0; i < v2.length; i++) {
+   
+       
+            System.out.print(v2[i]);
+         
+        } 
+            System.out.println("");    
+
+    }
     
-    public static void comprobarVectorpalabra(String[] vector, String letra){
+    
+    public static void comprobarPalabra(String[] vector,String[] v2,String p,String pwin,int vidas){
+
+     boolean bandera=true;
         
-        //como mando al un vector que esta en una funcion y una variavle que esta en otra funcion
-        
-    }    
+        for (int i = 0; i < vector.length; i++) {
+           if(vector[i].equals(pwin)){
+               v2[i]=pwin;
+               bandera=true;
+               break;
+      
+           }
+           else{
+              vidas--; 
+              bandera=true;
+           break;
+ 
+           }
+        }
+       
+    
+    }
+    
+    public static boolean gameOVER(int vidas){
+            boolean bandera=true;
+            
+               if(vidas==0){
+            bandera=false;
+        }
+               
+                     
+        return bandera;
+    }
+    
+
     
     public static void pintaMuñeco(int vidas){
         switch(vidas){
@@ -52,15 +83,7 @@ public class Ahorcado {
                 System.out.println("____");       
         
                 System.out.println("");
-                System.out.println("================");
-                System.out.println("");                    
-                System.out.println("- - - - - -");
-                System.out.println("");
-                System.out.println("================");
-                System.out.println("");
-                System.out.println("No has fallao");
-                System.out.println("");
-                System.out.println("Intentos que te quedan: ");
+
                 break;                
                 
             case 4:
@@ -72,15 +95,7 @@ public class Ahorcado {
                 System.out.println("____"); 
                 
                 System.out.println("");
-                System.out.println("================");
-                System.out.println("");                    
-                System.out.println("- - - - - -");
-                System.out.println("");
-                System.out.println("================");
-                System.out.println("");
-                System.out.println("No has fallao");
-                System.out.println("");
-                System.out.println("Intentos que te quedan: ");
+
                 break;
                 
             case 3:
@@ -95,15 +110,7 @@ public class Ahorcado {
                 System.out.println("____"); 
                 
                 System.out.println("");
-                System.out.println("================");
-                System.out.println("");                    
-                System.out.println("- - - - - -");
-                System.out.println("");
-                System.out.println("================");
-                System.out.println("");
-                System.out.println("No has fallao");
-                System.out.println("");
-                System.out.println("Intentos que te quedan: ");
+
                 break;                
                 
             case 2:
@@ -121,15 +128,7 @@ public class Ahorcado {
                 System.out.println("____");
                 
                 System.out.println("");
-                System.out.println("================");
-                System.out.println("");                    
-                System.out.println("- - - - - -");
-                System.out.println("");
-                System.out.println("================");
-                System.out.println("");
-                System.out.println("No has fallao");
-                System.out.println("");
-                System.out.println("Intentos que te quedan: ");            
+           
                 break;
                 
             case 1:
@@ -146,16 +145,7 @@ public class Ahorcado {
                 System.out.println("____");
                 
                 System.out.println("");
-                System.out.println("================");
-                System.out.println("");                    
-                System.out.println("- - - - - -");
-                System.out.println("");
-                System.out.println("================");
-                System.out.println("");
-                System.out.println("No has fallao");
-                System.out.println("");
-                System.out.println("Intentos que te quedan: ");                
-                break;                
+   
                 
             case 0:
                 
@@ -172,12 +162,9 @@ public class Ahorcado {
                 System.out.println("____");
                 
                 System.out.println("");
-                System.out.println("================");
+    
                  
-                System.out.println("Willy murio, te quedaste sin intentos");
-                System.out.println("");
-                System.out.println("La palabra era: ");
-                
+   
                 break;
             
         } 
@@ -189,7 +176,13 @@ public class Ahorcado {
     //varibales principales
     int empezarjuego,vidas=6;
     String palabra = "hola";
-
+    String sacarpalabra;
+    
+        
+    //poner la bandera en true
+                  
+    boolean bandera=true;
+  
     //inicializar el vector de la palabra  
     String[] vPalabra = new String[palabra.length()];
      String[] vSacar = new String[palabra.length()];
@@ -216,27 +209,39 @@ public class Ahorcado {
         
         
         }while(empezarjuego!=1);
-    
-    //poner la bandera en true
-                  
-    boolean bandera=true;
-  
+
         
     //bucle para cuando ya le has dado a jugar para que te salga cuando falles
         do{
-            pintaMuñeco(vidas);
-            //pinto vsacar
-            gameOVER(vSacar);
-            //leo palabra
-            //compruebo si ha terminado
             
+            //dibujo
+            pintaMuñeco(vidas);
+            
+            System.out.println("Adivina la palabra");
+            System.out.println("================");
+            
+            //muestro el vector adivinado o no
+            mostarVectores(vSacar);
+        
+            System.out.println("================");
+            //leo palabra
+            System.out.println("Dime una letra");
+            Scanner leer8 = new Scanner(System.in);
+            sacarpalabra = leer8.nextLine();
+            System.out.println("================");
+            
+            //compruebo si ha terminado
+            comprobarPalabra(vPalabra,vSacar,palabra,sacarpalabra,vidas);
+     
+            
+                gameOVER(vidas);
         
         }while(bandera=false);
         
         
-    //el juego ya ha terminado aquí
+
         
-        
+         
     }
     
 }
