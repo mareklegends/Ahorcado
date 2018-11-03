@@ -24,6 +24,11 @@ public class Ahorcado {
         }   
     }
   
+  
+  
+  
+  
+  
     public static void mostarVectores(String[] v2){
 
      
