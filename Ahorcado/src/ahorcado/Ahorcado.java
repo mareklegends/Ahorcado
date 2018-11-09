@@ -44,9 +44,9 @@ public class Ahorcado {
     }
     
     
-    public static void comprobarPalabra(String[] vector,String[] v2,String p,String pwin,int vidas){
-
-     boolean bandera=true;
+    public static int comprobarPalabra(String[] vector,String[] v2,String p,String pwin,int vidas){
+        
+     boolean bandera=false;
         
         for (int i = 0; i < vector.length; i++) {
            if(vector[i].equals(pwin)){
@@ -55,21 +55,20 @@ public class Ahorcado {
                break;
       
            }
-           else{
-              vidas--; 
-              bandera=true;
-           break;
- 
-           }
+           
+           
         }
-       
+        if (bandera == false)
+            vidas--; 
+        
+       return vidas;
     
     }
     
     public static boolean gameOVER(int vidas){
-            boolean bandera=true;
+        boolean bandera=true;
             
-               if(vidas==0){
+        if(vidas==0){
             bandera=false;
         }
                
@@ -236,17 +235,18 @@ public class Ahorcado {
             System.out.println("================");
             
             //compruebo si ha terminado
-            comprobarPalabra(vPalabra,vSacar,palabra,sacarpalabra,vidas);
+            vidas = comprobarPalabra(vPalabra,vSacar,palabra,sacarpalabra,vidas);
      
             
-                gameOVER(vidas);
+         
         
-        }while(bandera=false);
+        }while(bandera && gameOVER(vidas));
         
         
-
+   
         
          
     }
     
 }
+
